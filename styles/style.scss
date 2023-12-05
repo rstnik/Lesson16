@@ -1,0 +1,35 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+@import "./icons.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+* {
+  text-decoration: none;
+  list-style-type: none;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  .header1{
+    @include flex(space-around,center,0,row);
+    background-color: $light-green;
+    .logo{
+      padding: 20px 10px;
+    }
+    .social__links{
+      @include flex(center,center,15px,row);
+      li{
+        span{
+          font-size: 25px;
+          padding: 20px 10px;
+        }
+      }
+    }
+  }
+  .header2{
+    .nav{
+      
+    }
+  }
+}
