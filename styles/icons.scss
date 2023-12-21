@@ -24,19 +24,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-twitter:before {
+.icon-star:before {
   content: "\e900";
-  color: #32505b;
+  color: #ed8a19;
+}
+.icon-star-oragne:before {
+  content: "\e901";
+  color: #ed8a19;
 }
 .icon-behance:before {
-  content: "\e901";
-  color: #32505b;
-}
-.icon-facebook:before {
   content: "\e902";
   color: #32505b;
 }
-.icon-instagram:before {
+.icon-facebook:before {
   content: "\e903";
+  color: #32505b;
+}
+.icon-instagram:before {
+  content: "\e904";
+  color: #32505b;
+}
+.icon-twitter:before {
+  content: "\e905";
   color: #32505b;
 }

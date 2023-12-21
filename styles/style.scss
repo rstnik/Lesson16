@@ -1,7 +1,7 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 @import "./icons.scss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 * {
   text-decoration: none;
   list-style-type: none;
@@ -10,26 +10,546 @@
   padding: 0;
 }
 
-header{
-  .header1{
-    @include flex(space-around,center,0,row);
+.btn {
+  @include Roboto(16px, 24px, 400);
+  color: $white;
+  padding: 16px 32px;
+  background-color: $accent;
+  border-radius: 30px;
+  &-red {
+    background-color: $red;
+  }
+}
+.text {
+  @include Roboto(16px, 24px, 400);
+  color: $dark-blue;
+  &-dark{
+    color: $dark;
+  }
+  &-light-dark-blue{
+    color: $light-dark-blue;
+  }
+}
+
+header {
+  .header1 {
+    @include flex(space-around, center, 0, row);
     background-color: $light-green;
-    .logo{
+    .logo {
       padding: 20px 10px;
     }
-    .social__links{
-      @include flex(center,center,15px,row);
-      li{
-        span{
+    .social__links {
+      @include flex(center, center, 15px, row);
+      li {
+        span {
           font-size: 25px;
           padding: 20px 10px;
         }
       }
     }
   }
-  .header2{
-    .nav{
-      
+  .header2 {
+    @include flex(space-evenly, center, 0, row);
+    padding: 14px 0;
+    background-color: $lighter-green;
+    .nav {
+      @include flex(center, center, 5px, row);
+      &-link {
+        @include Roboto(16px, 24px, 400);
+        color: $light-dark-blue;
+        padding: 10px 10px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .cta {
+      @include flex(center, center, 32px, row);
+      &-link {
+        @include Roboto(16px, 24px, 400);
+        color: $dark;
+      }
     }
   }
+}
+
+.home {
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  position: relative;
+  grid-template: repeat(20, 30px) / repeat(20, 1fr);
+  background-color: $gray;
+  .title {
+    z-index: 1;
+    grid-area: 5/3/9/11;
+    @include Roboto(48px, 56px, 700);
+    text-align: center;
+    color: $dark-blue;
+
+    span {
+      @include Roboto(48px, 56px, 500);
+      color: $dark-gray;
+    }
+  }
+  .text {
+    z-index: 1;
+    grid-area: 9/3/14/11;
+    display: inline-grid;
+    @include Roboto(16px, 24px, 400);
+    text-align: center;
+    color: $dark-blue;
+  }
+  .buttons {
+    z-index: 1;
+    grid-area: 14/3/16/11;
+    @include flex(center, center, 18px, row);
+  }
+  img {
+    grid-area: 1/10/21/21;
+    height: 100%;
+    display: inline-grid;
+  }
+}
+
+.how_it_works {
+  @include flex(center, center, 30px, column);
+  padding: 50px 0;
+  &-title {
+    @include Roboto(48px, 58px, 500);
+    color: $dark;
+  }
+  &-subtitle {
+    @include Roboto(24px, 32px, 400);
+    color: $dark-blue;
+  }
+  .cards {
+    width: 100%;
+    @include flex(space-around, center, 0, row);
+    .card {
+      @include flex(center, flex-start, 12px, row);
+      span {
+        @include Roboto(48px, 56px, 700);
+        color: $accent;
+      }
+      .info {
+        position: relative;
+        @include flex(center, flex-start, 0, column);
+        &-title {
+          @include Roboto(20px, 32px, 700);
+          color: $dark-blue;
+        }
+        &-subtitle {
+          @include Roboto(16px, 24px, 400);
+          color: $dark-blue;
+        }
+        &-text {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+  .btn {
+    background-color: $white;
+    border: 1px solid $accent;
+    padding: 8px 32px;
+    color: $accent;
+  }
+}
+
+.recipes {
+  background: no-repeat url(../images/recipes_bg.jpg);
+  background-size: 100% 100%;
+  min-height: 480px;
+  @include flex(center, center, 0, none);
+
+  .cards {
+    width: 100%;
+    @include flex(space-evenly, center, 0, row);
+    .card {
+      width: 25%;
+      max-width: 396px;
+      border-radius: 15px;
+      background-color: $white;
+      @include flex(center, center, 0, column);
+      padding: 15px;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 10px;
+        background-color: $accent;
+        border-radius: 15px;
+        bottom: 0;
+      }
+      img {
+        border-radius: 15px;
+        width: 100%;
+      }
+      &-title {
+        @include Roboto(24px, 32px, 400);
+        color: $dark-blue;
+        margin-top: 20px;
+      }
+      .card-subtitle {
+        margin: 0;
+        color: $dark-blue;
+      }
+      .text {
+        margin-top: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+.reviews {
+  padding-bottom: 64px;
+  .stories {
+    @include flex(space-around, center, 0, row);
+    padding-top: 20px;
+    padding-bottom: 64px;
+    .info {
+      @include flex(center, flex-start, 0, column);
+      &-title {
+        @include Roboto(48px, 56px, 400);
+        color: $accent;
+        margin-bottom: 8px;
+      }
+      &-subtitle {
+        @include Roboto(24px, 32px, 400);
+        color: $dark;
+        margin-bottom: 24px;
+      }
+      &-text {
+        margin-bottom: 24px;
+      }
+    }
+    img {
+      border: 4px solid $accent;
+      border-radius: 10px;
+    }
+  }
+  .rating {
+    padding: 24px 0;
+    position: relative;
+    display: grid;
+    grid-template: 1fr 0.5fr 1fr / repeat(10, 0.5fr);
+    .card {
+      @include flex(space-between, center, 0, row);
+      max-width: 432px;
+      img {
+        border-radius: 50%;
+      }
+      .info {
+        &-name {
+          @include Roboto(18px, 24px, 500);
+          color: $black;
+          span {
+            @include Roboto(16px, 24px, 400);
+            color: $accent;
+          }
+        }
+      }
+      &1 {
+        grid-area: 1/2/1/5;
+      }
+      &2 {
+        grid-area: 1/6/1/9;
+      }
+      &3 {
+        grid-area: 3/3/3/6;
+      }
+      &4 {
+        grid-area: 3/7/3/10;
+      }
+    }
+    .arrow {
+      &-left {
+        grid-area: 2/1/2/2;
+        align-self: center;
+        justify-self: center;
+      }
+      &-right {
+        grid-area: 2/10/2/10;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: $accent;
+      width: 90%;
+      height: 5px;
+      top: 0;
+      left: 5%;
+      opacity: 35%;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $accent;
+      width: 90%;
+      height: 5px;
+      bottom: 0;
+      left: 5%;
+      opacity: 35%;
+    }
+  }
+}
+.program{
+  @include flex(center,center,25px,column);
+  padding: 35px 0;
+  background-color: $accentOpasicity;
+  &-title{
+    @include Roboto(48px,56px,400);
+    color: $dark;
+  }
+  &-subtitle{
+    @include Roboto(24px,32px,400);
+    color: $dark;
+    text-align: center;
+  }
+  .cards{
+    width: 100%;
+    @include flex(space-around,center,0,row);
+    .card{
+      @include flex(center,center,20px,column);
+      &-title{
+        @include Roboto(22px,24px,500);
+        text-align: center;
+        color: $dark;
+      }
+      &-text{
+        text-align: center;
+      }
+    }
+  }
+}
+.princing{
+  @include flex(center,center,0,none);
+  padding: 50px 0;
+  .table{
+    border: 1px solid rgb(99, 119, 221, 50%);
+    border-collapse: collapse;
+    tr{
+      td{
+        padding: 10px 40px;
+        border: 1px solid rgb(99, 119, 221, 50%);
+        .title{
+          text-align: center;
+          @include Roboto(24px,32px,400);
+          color: $dark;
+        }
+        .text{
+          text-align: center;
+          span{
+            @include Roboto(58px,56px,300);
+          }
+        }
+        .btn{
+          background-color: $white;
+          color: $accent;
+          border: 1px solid $accent;
+          text-align: center;
+          padding: 8px 10px;
+        }
+      }
+    }
+  }
+}
+.questions{
+  display: grid;
+  grid-template: 1fr 1fr/1fr 1fr;
+  row-gap: 50px;
+  padding: 50px 0;
+  .card{
+    @include flex(center,flex-start,20px,row);
+    .question{
+      @include Roboto(40px,24px,700);
+      color: $white;
+      background-color: $accent;
+      border-radius: 50%;
+      text-align: center;
+      width: 64px;
+      height: 64px;
+      @include flex(center,center,0,none);
+    }
+    .info{
+      &-title{
+        @include Roboto(24px,32px,400);
+        color: $dark;
+      }
+      .text{
+        color: $light-dark-blue;
+      }
+    }
+  }
+}
+.subscribe{
+  background: no-repeat url(../images/subscribe_bg.jpg);
+  background-size: 100% 100%;
+  min-height: 584px;
+  @include flex(flex-start,center,0,row);
+  .info{
+    background-color: $white;
+    border-radius: 20px;
+    @include flex(space-evenly,center,0,column);
+    min-width: 488px;
+    min-height: 330px;
+    margin-left: 15%;
+    &-title{
+      @include Roboto(24px,25px,400);
+      color: $accent;
+      span{
+        @include Roboto(16px,24px,400);
+        color: $light-dark-blue;
+      }
+    }
+    &-subtitle{
+      @include Roboto(12px,18px,400);
+      color: $dark;
+      span{
+        @include Roboto(12px,18px,500);
+        color: $dark;
+      }
+    }
+    .input{
+      width: 65%;
+      padding: 8px 16px;
+      background-color: rgb(136, 130, 130, 20%);
+      border: 1px solid #888282;
+      border-radius: 20px;
+      &::placeholder{
+        @include Roboto(16px,24px,400);
+        color: #404040; 
+      }
+    }
+    .button{
+      @include flex(center,center,23px,row);
+      .text{
+        @include Roboto(9px,24px,400);
+        color: $dark;
+      }
+      .btn{
+        padding: 8px 32px;
+      }
+    }
+  }
+}
+.coaches{
+  @include flex(center,center,30px,column);
+  padding: 70px 0;
+  &-title{
+    @include Roboto(48px,56px,500);
+    color: $dark;
+    text-align: center;
+  }
+  &-subtitle{
+    @include Roboto(24px,32px,400);
+    color: $light-dark-blue;
+    text-align: center;
+  }
+  &-text{
+    @include Roboto(24px,32px,400);
+    color: $light-dark-blue;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .cards{
+    display: grid;
+    grid-template: repeat(2, 1fr)/repeat(2,1fr);
+    justify-items: center;
+    row-gap: 80px;
+    column-gap: 60px;
+    .card{
+      @include flex(center,center,20px,row);
+      max-width: 488px;
+      img{
+        border-radius: 50%;
+      }
+      .info{
+        @include flex(center,flex-start,8px,column);
+       .name{
+        @include flex(space-between,center,0,row);
+        width: 100%;
+        &-title{
+          @include Roboto(18px,24px,500);
+          color: $accent;
+        }
+        .social__links{
+          @include flex(space-around,center,0,row);
+          width: 60%;
+        }
+       }
+        &-subtitle{
+          @include Roboto(12px,18px,700);
+          color: $dark;
+        }
+        &-text{}
+      }
+    }
+  }
+}
+.cta2{
+  padding: 80px 0;
+  background-color: $accent;
+  @include flex(center,center,16px,row);
+  &-title{
+    @include Roboto(24px,32px,700);
+    color: $white;
+  }
+  .btn{
+    padding: 8px 16px;
+    border: 1px solid $white;
+  }
+}
+.footer {
+    @include flex(space-around, flex-start, 0, row);
+    padding: 24px 0;
+    &-info {
+      @include flex(center, flex-start, 15px, column);
+      .text1{
+        @include Roboto(12px,14px,400);
+        color: $dark;
+        margin-bottom: 50px;
+      }
+      .text2{
+        @include Roboto(12px,18px,400);
+        color: $black;
+      }
+      .text3{
+        @include Roboto(12px,14px,400);
+        color: $dark-blue;
+      }
+      .btn{
+        padding: 8px 16px;
+        border: 2px solid $accent;
+        color: $accent;
+        background-color: $white;
+      }
+    }
+    &-nav {
+      @include flex(space-between, flex-start, 0, row);
+      width: 40%;
+      .column {
+         .title {
+          @include Roboto(16px,24px,400);
+          color: $dark-blue;
+          margin-bottom: 20px;
+          margin-left: 10px;
+        }
+         .menu {
+          @include flex(center, flex-start, 5px, column);
+          .menu-item {
+            @include Roboto(16px,35px,400);
+            color: $dark;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+  
 }

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?btyokf');
-  src:  url('fonts/icomoon.eot?btyokf#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?btyokf') format('truetype'),
-    url('fonts/icomoon.woff?btyokf') format('woff'),
-    url('fonts/icomoon.svg?btyokf#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?b8wrkm');
+  src:  url('fonts/icomoon.eot?b8wrkm#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?b8wrkm') format('truetype'),
+    url('fonts/icomoon.woff?b8wrkm') format('woff'),
+    url('fonts/icomoon.svg?b8wrkm#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,19 +25,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-twitter:before {
+.icon-star:before {
   content: "\e900";
-  color: #32505b;
+  color: #ed8a19;
+}
+.icon-star-oragne:before {
+  content: "\e901";
+  color: #ed8a19;
 }
 .icon-behance:before {
-  content: "\e901";
-  color: #32505b;
-}
-.icon-facebook:before {
   content: "\e902";
   color: #32505b;
 }
-.icon-instagram:before {
+.icon-facebook:before {
   content: "\e903";
+  color: #32505b;
+}
+.icon-instagram:before {
+  content: "\e904";
+  color: #32505b;
+}
+.icon-twitter:before {
+  content: "\e905";
   color: #32505b;
 }
